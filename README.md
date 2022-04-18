@@ -1,0 +1,2 @@
+# Leaflet.SidePanel
+Leaflet plugin
