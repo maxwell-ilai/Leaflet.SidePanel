@@ -1,0 +1,30 @@
+{
+  "name": "leaflet.sidepanel",
+  "version": "1.0.0",
+  "description": "Leaflet Side Panel plugin",
+  "main": "./src/leaflet-sidepanel.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxwell-ilai/Leaflet.SidePanel.git"
+  },
+  "keywords": [
+    "leaflet",
+    "sidebar",
+    "sidepanel"
+  ],
+  "author": "Maxwell Ilai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxwell-ilai/Leaflet.SidePanel/issues"
+  },
+  "homepage": "https://github.com/maxwell-ilai/Leaflet.SidePanel#readme",
+  "peerDependencies": {
+    "leaflet": "^1.0.0"
+  }
+}
