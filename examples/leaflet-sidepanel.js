@@ -11,7 +11,8 @@ L.Control.SidePanel = L.Control.extend({
 		hasTabs: true,
 		tabsPosition: 'top',
 		darkMode: false,
-		pushControls: false
+		pushControls: false,
+		startTab: 1
 	},
 
 	initialize: function (id, options) {
@@ -47,29 +48,36 @@ L.Control.SidePanel = L.Control.extend({
 			L.DomUtil.addClass(this._panel, 'tabs-' + tabsPosition);
 		}
 
-		let tabsContainer = this._panel.querySelector('.sidepanel-tabs');
-		let tabsLinks = tabsContainer.querySelectorAll('.sidepanel-tab');
+		let tabsLinks = this._panel.querySelectorAll('a.sidebar-tab-link');
 		let tabsContents = this._panel.querySelectorAll('.sidepanel-tab-content');
 
-		tabsLinks.forEach(function (tab) {
-			const link = tab.querySelector('a.sidebar-tab-link');
-
+		tabsLinks.forEach(function (tabLink, tabIndex) {
 			// Shows the first active tab
-			if (L.DomUtil.hasClass(link, 'active')) {
-				tabsContents.forEach(function (element) {
-					if (link.dataset.tabLink === element.dataset.tabContent) {
-						L.DomUtil.addClass(element, 'active');
-					}
-				});
+
+			let startTab, startContent;
+
+			if (typeof this.options.startTab === 'number' && (this.options.startTab - 1) === tabIndex) {
+				startTab = tabLink;
+				startContent = tabsContents[tabIndex - 1];
 			}
 
-			L.DomEvent.on(link, 'click', function (e) {
+			if (typeof this.options.startTab === 'string' && this.options.startTab === tabLink.dataset.tabLink) {
+				startTab = tabLink;
+				startContent = this._panel.querySelector(`.sidepanel-tab-content[data-tab-content="${this.options.startTab}"]`);
+			}
+
+			if (startTab !== undefined && !L.DomUtil.hasClass(startTab, 'active')) {
+				L.DomUtil.addClass(startTab, 'active');
+				L.DomUtil.addClass(startContent, 'active');
+			}
+
+			L.DomEvent.on(tabLink, 'click', function (e) {
 				L.DomEvent.preventDefault(e);
 
-				if (!L.DomUtil.hasClass(link, 'active')) {
+				if (!L.DomUtil.hasClass(tabLink, 'active')) {
 					// Remove active links
 					for (let i = 0; i < tabsLinks.length; i++) {
-						let linkActive = tabsLinks[i].querySelector('a.sidebar-tab-link');
+						let linkActive = tabsLinks[i];
 
 						if (L.DomUtil.hasClass(linkActive, 'active')) {
 							L.DomUtil.removeClass(linkActive, 'active');
@@ -77,19 +85,19 @@ L.Control.SidePanel = L.Control.extend({
 					}
 
 					// Add current active link
-					L.DomUtil.addClass(link, 'active');
+					L.DomUtil.addClass(tabLink, 'active');
 
 					// Shows current active content
 					tabsContents.forEach(function (element) {
-						if (link.dataset.tabLink === element.dataset.tabContent) {
+						if (tabLink.dataset.tabLink === element.dataset.tabContent) {
 							L.DomUtil.addClass(element, 'active');
 						} else {
 							L.DomUtil.removeClass(element, 'active');
 						}
 					});
 				}
-			}, tab);
-		});
+			}, tabLink);
+		}.bind(this));
 
 		this._toggleButton(map);
 	},
@@ -122,15 +130,13 @@ L.Control.SidePanel = L.Control.extend({
 				L.DomUtil.addClass(controlsContainer, 'leaflet-anim-control-container');
 
 				if (IS_OPENED) {
-					L.DomUtil.removeClass(controlsContainer,  this.options.panelPosition + '-closed');
+					L.DomUtil.removeClass(controlsContainer, this.options.panelPosition + '-closed');
 					L.DomUtil.addClass(controlsContainer, this.options.panelPosition + '-opened');
 				} else {
 					L.DomUtil.removeClass(controlsContainer, this.options.panelPosition + '-opened');
 					L.DomUtil.addClass(controlsContainer, this.options.panelPosition + '-closed');
 				}
 			}
-
-
 		}.bind(this), container);
 	},
 });

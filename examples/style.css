@@ -1,4 +1,3 @@
-/* Panel  */
 .sidepanel {
   width: 400px;
   height: 100%;
@@ -19,7 +18,6 @@
   }
 }
 
-/* Panel Left */
 .sidepanel.sidepanel-left {
   left: 0;
   transform: translateX(-100%);
@@ -31,7 +29,6 @@
   animation: slide-left 0.5s ease 0s 1 both;
 }
 
-/* Panel Right */
 .sidepanel.sidepanel-right {
   right: 0;
   transform: translateX(100%);
@@ -81,12 +78,6 @@
   display: block;
   animation: fade-in 0.36s ease-out;
 }
-.sidepanel:not(.rtl) .sidepanel-content-wrapper .sidepanel-content {
-  direction: ltr;
-}
-.sidepanel.rtl .sidepanel-content-wrapper .sidepanel-content {
-  direction: rtl;
-}
 .sidepanel-content-wrapper::-webkit-scrollbar {
   width: 6px;
 }
@@ -101,7 +92,6 @@
   background: #383838;
 }
 
-/* Content positioning */
 .sidepanel.tabs-top .sidepanel-content-wrapper,
 .sidepanel.tabs-bottom .sidepanel-content-wrapper {
   height: calc(100% - 48px);
@@ -119,7 +109,6 @@
 
 .sidepanel.tabs-right .sidepanel-content-wrapper {
   right: 48px;
-  direction: rtl;
 }
 
 .sidepanel.tabs-left .sidepanel-content-wrapper {
@@ -132,7 +121,6 @@
   width: calc(100% - 48px);
 }
 
-/* Tabs */
 .sidepanel-tabs-wrapper {
   position: absolute;
   height: 48px;
@@ -189,7 +177,6 @@
   right: 0;
 }
 
-/* Tab link */
 .sidepanel-tabs-wrapper .sidepanel-tabs .sidepanel-tab .sidebar-tab-link {
   display: flex;
   justify-content: center;
@@ -424,7 +411,6 @@
   border-right: 1px solid #202429;
 }
 
-/* Animate control */
 .leaflet-anim-control-container.left-opened .leaflet-left {
   left: 400px;
   transition: left 0.5s ease;
@@ -452,7 +438,6 @@
   transition: right 0.5s ease, right 0.5s ease;
 }
 
-/* Animation */
 @keyframes slide-left {
   0% {
     transform: translateX(0);
