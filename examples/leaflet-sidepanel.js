@@ -53,7 +53,6 @@ L.Control.SidePanel = L.Control.extend({
 
 		tabsLinks.forEach(function (tabLink, tabIndex) {
 			// Shows the first active tab
-
 			let startTab, startContent;
 
 			if (typeof this.options.startTab === 'number' && (this.options.startTab - 1) === tabIndex) {
