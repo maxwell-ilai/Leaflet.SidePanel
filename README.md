@@ -22,11 +22,11 @@ Include **leaflet-sidepanel.css** and **leaflet-sidepanel.js** in your page:
 ***Javascript***
 ```javascript
 const panelRight = L.control.sidepanel('panelID', {
-    panelPosition: 'right',
+	panelPosition: 'right',
 	hasTabs: false,
-    tabsPosition: 'top',
-    pushControls: true,
-    darkMode: true,
+	tabsPosition: 'top',
+	pushControls: true,
+	darkMode: true,
 	startTab: 'tab-5'
 }).addTo(map);
 ```
@@ -66,3 +66,6 @@ const panelRight = L.control.sidepanel('panelID', {
 Tested in leaflet 1.8.0
 
 # Links
+[Example Page](https://maxwell-ilai.github.io/Leaflet.SidePanel/examples/)
+
+[Leaflet](https://leafletjs.com/)
