@@ -1,7 +1,7 @@
 # Leaflet.SidePanel
 Slide side panel plugin for [Leaflet](http://leafletjs.com/).
 
-# How to use
+## How to use
 Include **leaflet-sidepanel.css** and **leaflet-sidepanel.js** in your page:
 ```html
 <link rel="stylesheet" href="./dist/leaflet-sidepanel.css" />
@@ -62,10 +62,10 @@ const panelRight = L.control.sidepanel('panelID', {
 </div>
 ```
 
-# Requirements
+## Requirements
 Tested in leaflet 1.8.0
 
-# Links
+## Links
 [Example Page](https://maxwell-ilai.github.io/Leaflet.SidePanel/examples/)
 
 [Leaflet](https://leafletjs.com/)
