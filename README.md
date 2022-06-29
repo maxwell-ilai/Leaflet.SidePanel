@@ -1,5 +1,5 @@
 # Leaflet.SidePanel
-Leaflet plugin
+Slide side panel plugin for [Leaflet](http://leafletjs.com/).
 
 # How to use
 Include **leaflet-sidepanel.css** and **leaflet-sidepanel.js** in your page:
