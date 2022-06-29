@@ -4,8 +4,8 @@ Leaflet plugin
 # How to use
 Include **leaflet-sidepanel.css** and **leaflet-sidepanel.js** in your page:
 ```html
-<link rel="stylesheet" href="./leaflet-sidepanel.css" />
-<script src="./dist/leaflet-sidepanel.js"></script>
+<link rel="stylesheet" href="./dist/leaflet-sidepanel.css" />
+<script src="./dist/leaflet-sidepanel.min.js"></script>
 ```
 
 ## Options
@@ -61,5 +61,8 @@ const panelRight = L.control.sidepanel('panelID', {
 	</div>
 </div>
 ```
+
+# Requirements
+Tested in leaflet 1.8.0
 
 # Links
