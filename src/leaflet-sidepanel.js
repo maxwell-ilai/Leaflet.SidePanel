@@ -57,7 +57,7 @@ L.Control.SidePanel = L.Control.extend({
 
 			if (typeof this.options.startTab === 'number' && (this.options.startTab - 1) === tabIndex) {
 				startTab = tabLink;
-				startContent = tabsContents[tabIndex - 1];
+				startContent = tabsContents[tabIndex];
 			}
 
 			if (typeof this.options.startTab === 'string' && this.options.startTab === tabLink.dataset.tabLink) {
